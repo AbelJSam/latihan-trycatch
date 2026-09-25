@@ -94,4 +94,39 @@ void main() async {
     print('${product['title']} | \$${product['price']}');
   });
 
+
+//Latihan
+// Fungsi mengambil data dari API
+  Future<List<dynamic>> ambilData() async {
+
+    var response = await http.get(
+      Uri.parse('https://dummyjson.com/users'),
+    );
+
+    // Decode JSON
+    var jsonRespon = jsonDecode(response.body);
+
+    // Ambil list yang ada di key 'users'
+    return jsonRespon['users'];
+  }
+
+  // Memanggil fungsi dan mendapatkan list user
+  List<dynamic> dataUser = await ambilData();
+
+  print('================ FOR IN ================');
+
+  // Gunakan for-in
+  for (var user in dataUser) {
+    print('${user['firstName']} ${user['lastName']} | Umur: ${user['age']}');
+  }
+
+
+  print('\n================ FOR EACH ================');
+
+  // Gunakan forEach
+  dataUser.forEach((user) {
+    print('${user['email']} | ${user['address']['city']}');
+  });
+
 }
+
