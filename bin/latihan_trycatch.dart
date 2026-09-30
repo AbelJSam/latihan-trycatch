@@ -128,5 +128,52 @@ void main() async {
     print('${user['email']} | ${user['address']['city']}');
   });
 
+
+// Latihan Try-Catch — API Users
+  //  Future<List<dynamic>> ambilData() async {
+  //   try {
+  //     var response = await http.get(
+  //       Uri.parse('https://dummyjson.com/users'),
+  //     );
+
+  //     // Cek status response
+  //     if (response.statusCode == 200) {
+  //       var jsonRespon = jsonDecode(response.body);
+
+  //       // Ambil data yang ada di key 'users'
+  //       return jsonRespon['users'];
+  //     } else {
+  //       throw Exception('Gagal mengambil data');
+  //     }
+
+  //   } catch (e) {
+  //     print('Terjadi error: $e');
+  //     return [];
+  //   }
+  // }
+
+  // // Memanggil fungsi
+  // List<dynamic> dataUser = await ambilData();
+
+  // // ================= FOR IN =================
+
+  // print('================ FOR IN ================');
+
+  // for (var user in dataUser) {
+  //   print(
+  //     'Nama: ${user['firstName']} ${user['lastName']} | Umur: ${user['age']}',
+  //   );
+  // }
+
+  // // ================= FOR EACH =================
+
+  // print('\n================ FOR EACH ================');
+
+  // dataUser.forEach((user) {
+  //   print(
+  //     'Email: ${user['email']} | Kota: ${user['address']['city']}',
+  //   );
+  // });
+
 }
 
